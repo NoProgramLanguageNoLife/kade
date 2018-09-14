@@ -42,19 +42,11 @@ class SchedulesAdapter(var list: List<Match>, private val itemListener: Schedule
 
     inner class ClubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var tvDate: TextView
-        var tvHomeName: TextView
-        var tvHomeScore: TextView
-        var tvAwayName: TextView
-        var tvAwayScore: TextView
-
-        init {
-            tvDate = itemView.tvDate
-            tvHomeName = itemView.tvHomeName
-            tvHomeScore = itemView.tvHomeScore
-            tvAwayName = itemView.tvAwayName
-            tvAwayScore = itemView.tvAwayScore
-        }
+        var tvDate: TextView = itemView.tvDate
+        var tvHomeName: TextView = itemView.tvHomeName
+        var tvHomeScore: TextView = itemView.tvHomeScore
+        var tvAwayName: TextView = itemView.tvAwayName
+        var tvAwayScore: TextView = itemView.tvAwayScore
 
     }
 

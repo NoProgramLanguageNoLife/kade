@@ -74,7 +74,7 @@ class SchedulesFragment : Fragment(), SchedulesContract.View {
 
     companion object {
 
-        private val ARGUMENT_IS_PAST = "IS_PAST"
+        private const val ARGUMENT_IS_PAST = "IS_PAST"
 
         fun newInstance(isPast: Boolean) =
                 SchedulesFragment().apply {

@@ -69,7 +69,7 @@ class MatchFragment : Fragment(), MatchContract.View {
     }
 
     companion object {
-        private val ARGUMENT_MATCH = "MATCH"
+        private const val ARGUMENT_MATCH = "MATCH"
 
         fun newInstance(match: Match) =
                 MatchFragment().apply {

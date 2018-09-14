@@ -25,7 +25,7 @@ class MatchActivity : AppCompatActivity() {
     }
 
     companion object {
-        val EXTRA_MATCH = "MATCH"
+        const val EXTRA_MATCH = "MATCH"
     }
 
     class MatchActivityUI : AnkoComponent<MatchActivity> {
