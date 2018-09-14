@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemPrev"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/menu_prev" />
+    <item
+        android:id="@+id/itemNext"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/menu_next" />
+</menu>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Football Match</string>
+    <string name="club_icon">Club icon</string>
+    <string name="menu_prev">Prev Match</string>
+    <string name="menu_next">Next Match</string>
+    <string name="schedules_vs">vs</string>
+    <string name="match_goals">Goals</string>
+    <string name="match_shots">Shots</string>
+    <string name="match_lineups">Lineups</string>
+    <string name="match_goalkeeper">Goalkeeper</string>
+    <string name="match_defender">Defender</string>
+    <string name="match_midfielder">Midfielder</string>
+    <string name="match_forwarder">Forwarder</string>
+    <string name="match_substitutes">Substitutes</string>
+</resources>
