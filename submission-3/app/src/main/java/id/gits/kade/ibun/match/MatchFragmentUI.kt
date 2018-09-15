@@ -162,6 +162,7 @@ class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<Fragment> {
                                 match?.strAwayGoalDetails?.split(";")?.forEach {
                                     textView {
                                         text = it
+                                        gravity = Gravity.END
                                     }.lparams {
                                         gravity = Gravity.END
                                     }
@@ -236,7 +237,7 @@ class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<Fragment> {
                             }
 
                             textView {
-                                text = match?.strAwayLineupGoalkeeper
+                                text = match?.strAwayLineupGoalkeeper?.replace(";", "")
                                 gravity = Gravity.END
                             }.lparams {
                                 weight = 1f
@@ -272,6 +273,7 @@ class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<Fragment> {
                                 match?.strAwayLineupDefense?.split("; ")?.forEach {
                                     textView {
                                         text = it
+                                        gravity = Gravity.END
                                     }.lparams {
                                         gravity = Gravity.END
                                     }
@@ -310,6 +312,7 @@ class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<Fragment> {
                                 match?.strAwayLineupMidfield?.split("; ")?.forEach {
                                     textView {
                                         text = it
+                                        gravity = Gravity.END
                                     }.lparams {
                                         gravity = Gravity.END
                                     }
@@ -348,6 +351,7 @@ class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<Fragment> {
                                 match?.strAwayLineupForward?.split("; ")?.forEach {
                                     textView {
                                         text = it
+                                        gravity = Gravity.END
                                     }.lparams {
                                         gravity = Gravity.END
                                     }
@@ -386,6 +390,7 @@ class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<Fragment> {
                                 match?.strAwayLineupSubstitutes?.split("; ")?.forEach {
                                     textView {
                                         text = it
+                                        gravity = Gravity.END
                                     }.lparams {
                                         gravity = Gravity.END
                                     }
