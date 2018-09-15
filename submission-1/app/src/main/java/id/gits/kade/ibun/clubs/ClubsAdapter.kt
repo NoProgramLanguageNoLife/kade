@@ -43,14 +43,8 @@ class ClubsAdapter(val context: Context, var list: ArrayList<Club> = arrayListOf
     }
 
     inner class ClubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        var ivIcon: ImageView
-        var tvName: TextView
-
-        init {
-            ivIcon = itemView.ivIcon
-            tvName = itemView.tvName
-        }
+        var ivIcon: ImageView = itemView.ivIcon
+        var tvName: TextView = itemView.tvName
 
     }
 }

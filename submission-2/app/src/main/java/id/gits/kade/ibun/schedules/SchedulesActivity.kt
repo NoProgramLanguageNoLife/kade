@@ -75,8 +75,7 @@ class SchedulesActivity : AppCompatActivity() {
         }
 
         override fun createView(ui: AnkoContext<SchedulesActivity>) = with(ui) {
-            linearLayout {
-                orientation = LinearLayout.VERTICAL
+            verticalLayout {
 
                 frameLayout {
                     id = contentFrame
