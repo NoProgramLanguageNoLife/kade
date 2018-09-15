@@ -36,11 +36,15 @@ class MatchFragment : Fragment(), MatchContract.View {
             setOnRefreshListener { presenter.getClub() }
         }
 
-        presenter.start()
 
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        presenter.start()
+    }
+    
     override fun showClubHome(club: Club) {
         view?.findViewById<ImageView>(MatchFragmentUI.homeLogoId)?.let { showLogo(club, it) }
     }

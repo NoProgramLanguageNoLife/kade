@@ -48,11 +48,15 @@ class SchedulesFragment : Fragment(), SchedulesContract.View {
 
         arguments?.getSerializable(ARGUMENT_TYPE)?.let {
             type = it as SchedulesActivity.TYPE
-            presenter.setType(type)
         }
-        presenter.start()
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.setType(type)
+        presenter.start()
     }
 
     override fun showError(message: String?) {
