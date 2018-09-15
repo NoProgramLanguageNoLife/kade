@@ -64,7 +64,7 @@ class SportsRemoteDataSource private constructor(
         private var INSTANCE: SportsRemoteDataSource? = null
 
         @JvmStatic
-        fun getInstance(): SportsRemoteDataSource? {
+        fun getInstance(): SportsRemoteDataSource {
             if (INSTANCE == null) {
                 synchronized(SportsRemoteDataSource::javaClass) {
                     val retrofit = Retrofit.Builder()
@@ -75,7 +75,7 @@ class SportsRemoteDataSource private constructor(
                     INSTANCE = SportsRemoteDataSource(retrofit.create(SportsService::class.java))
                 }
             }
-            return INSTANCE
+            return INSTANCE!!
         }
 
         @VisibleForTesting
