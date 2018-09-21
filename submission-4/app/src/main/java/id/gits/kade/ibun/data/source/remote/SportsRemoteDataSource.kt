@@ -4,6 +4,7 @@ import android.support.annotation.VisibleForTesting
 import id.gits.kade.ibun.BuildConfig
 import id.gits.kade.ibun.data.Match
 import id.gits.kade.ibun.data.source.SportsDataSource
+import id.gits.kade.ibun.utils.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class SportsRemoteDataSource private constructor(
-        val apiService: SportsService
+        private val apiService: SportsService
 ) : SportsDataSource {
     private fun <T> callback2(success: ((Response<T>) -> Unit)?, failure: ((t: Throwable) -> Unit)? = null): Callback<T> {
         return object : Callback<T> {
@@ -27,21 +28,36 @@ class SportsRemoteDataSource private constructor(
     }
 
     override fun getLastMatches(callback: SportsDataSource.LoadMatchesCallback) {
+        EspressoIdlingResource.increment() // App is busy until further notice
+
         apiService.listPastMatches(BuildConfig.LEAGUE_ID).enqueue(callback2(
                 { r ->
+                    if (!EspressoIdlingResource.countingIdlingResource.isIdleNow) {
+                        EspressoIdlingResource.decrement() // Set app as idle.
+                    }
                     r.body()?.let { it -> callback.onMatchesLoaded(it.events.apply { forEach { it.isPast = true } }) }
                 },
                 { t ->
+                    if (!EspressoIdlingResource.countingIdlingResource.isIdleNow) {
+                        EspressoIdlingResource.decrement() // Set app as idle.
+                    }
                     callback.onError(t.message)
                 }))
     }
 
     override fun getNextMatches(callback: SportsDataSource.LoadMatchesCallback) {
+        EspressoIdlingResource.increment() // App is busy until further notice
         apiService.listNextMatches(BuildConfig.LEAGUE_ID).enqueue(callback2(
                 { r ->
+                    if (!EspressoIdlingResource.countingIdlingResource.isIdleNow) {
+                        EspressoIdlingResource.decrement() // Set app as idle.
+                    }
                     r.body()?.let { callback.onMatchesLoaded(it.events) }
                 },
                 { t ->
+                    if (!EspressoIdlingResource.countingIdlingResource.isIdleNow) {
+                        EspressoIdlingResource.decrement() // Set app as idle.
+                    }
                     callback.onError(t.message)
                 }))
     }
@@ -62,6 +78,10 @@ class SportsRemoteDataSource private constructor(
     }
 
     override fun isFavorited(match: Match, callback: SportsDataSource.CheckFavoriteCallback) {
+        // not implemented, local data source only
+    }
+
+    override fun deleteAllFavorites() {
         // not implemented, local data source only
     }
 
