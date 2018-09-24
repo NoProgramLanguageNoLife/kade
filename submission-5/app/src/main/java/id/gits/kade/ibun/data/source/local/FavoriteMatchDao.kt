@@ -1,12 +1,12 @@
 package id.gits.kade.ibun.data.source.local
 
-class FavoriteDao {
+class FavoriteMatchDao {
  
     companion object {
-        const val TABLE_FAVORITE: String = "TABLE_FAVORITE"
+        const val TABLE_FAVORITE_MATCH: String = "TABLE_FAVORITE_MATCH"
         const val ID: String = "ID_"
 
-        const val MATCH_ID: String = "HOME_MATCH_ID"
+        const val MATCH_ID: String = "MATCH_ID"
         const val JSON: String = "JSON"
         const val IS_PAST: String = "IS_PAST"
     }
